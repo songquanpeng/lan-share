@@ -1,8 +1,17 @@
 <%- include('./partials/header') %>
 <%- include('./partials/navigation') %>
 <div class="mdui-container">
+    <div class="mdui-card" style="margin-top: 16px;padding-left: 8px;padding-right: 8px">
+        <div class="mdui-textfield mdui-textfield-floating-label" style="padding-top: 8px">
+            <i class="mdui-icon material-icons">search</i>
+            <label class="mdui-textfield-label">Search files...</label>
+            <input class="mdui-textfield-input" type="text" style="cursor: text;">
+            <div class="mdui-textfield-helper">Press "Enter" to search.</div>
+        </div>
+    </div>
+
     <div class="mdui-card" style="margin-top: 16px">
-        <div class="mdui-card-primary">
+        <div class="mdui-card-primary" style="padding-top: 8px">
             <div class="mdui-card-primary-title">filename</div>
             <div class="mdui-card-primary-subtitle">
                 <span>time</span>
@@ -10,16 +19,18 @@
                 <span>download number</span>
             </div>
         </div>
-        <div class="mdui-card-content">
+        <div class="mdui-card-content" style="padding-top: 8px;padding-bottom: 8px">
             description
         </div>
         <div class="mdui-card-actions">
-            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">cloud_download</i></button>
-            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">thumb_down</i></button>
-            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">thumb_up</i></button>
+            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i
+                        class="mdui-icon material-icons">cloud_download</i></button>
+            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">thumb_down</i>
+            </button>
+            <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">thumb_up</i>
+            </button>
         </div>
     </div>
-
 
 </div>
 <%- include('./partials/footer') %>
