@@ -6,10 +6,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const serveStatic = require('serve-static');
-
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-
+const apiRouter = require('./routes/api');
+const database = require('./utils/database');
+database.init();
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -35,7 +35,7 @@ app.use(
 );
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));

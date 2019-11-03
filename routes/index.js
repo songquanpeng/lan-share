@@ -1,9 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const File = require('../models/file').File;
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  let query = req.query.search;
+  if (query === '') {
+    File.all((files, message) => {
+      res.render('index', {
+        files: files,
+        message: message
+      });
+    });
+  } else {
+    File.search(query, (files, message) => {
+      res.render('index', {
+        files: files,
+        message: message
+      });
+    });
+  }
 });
 
 module.exports = router;
