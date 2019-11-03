@@ -3,3 +3,5 @@ node_modules
 data.db
 .vs
 data.db-journal
+public/downloads/*
+!public/downloads/README.md

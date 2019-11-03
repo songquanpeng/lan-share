@@ -1,7 +1,31 @@
-<div class="mdui-fab-wrapper mdui-fab" >
-    <button class="mdui-fab mdui-ripple mdui-color-theme-accent">
+<div class="mdui-fab-wrapper mdui-fab">
+    <button class="mdui-fab mdui-ripple mdui-color-theme-accent" mdui-dialog="{target: '#uploadFileDialog'}">
         <i class="mdui-icon material-icons">add</i>
     </button>
 </div>
+<form method="post" action="/api/upload" enctype='multipart/form-data'>
+    <div class="mdui-dialog" id="uploadFileDialog">
+        <div class="mdui-dialog-title" id="uploadFileDialogTitle">Upload file</div>
+        <div class="mdui-dialog-content">
+            <input class="mdui-btn mdui-ripple" id="fileInput" type="file" name="file" required style="display: none"
+                   onchange="document.getElementById('uploadFileDialogTitle').innerText = 'Selected file: '+document.getElementById('fileInput').files[0].name">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">account_circle</i>
+                <label class="mdui-textfield-label">Your name</label>
+                <textarea class="mdui-textfield-input" required name="uploader" id="fileUploader"></textarea>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">textsms</i>
+                <label class="mdui-textfield-label">Description</label>
+                <textarea class="mdui-textfield-input" required name="description" id="fileDescription"></textarea>
+            </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" onclick="document.getElementById('fileInput').click()">choose</button>
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>cancel</button>
+            <input class="mdui-btn mdui-ripple" type="submit" name="SUBMIT">
+        </div>
+    </div>
+</form>
 </body>
 </html>

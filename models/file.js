@@ -7,6 +7,7 @@ class File {
       .asCallback((error, files) => {
         let message = 'success';
         if (error) {
+          console.error(error);
           message = error.message;
         }
         callback(files, message);
@@ -18,6 +19,7 @@ class File {
       .insert(file)
       .asCallback(error => {
         if (error) {
+          console.error(error);
           callback(error.message);
         } else {
           callback('success');
@@ -31,6 +33,7 @@ class File {
       .del()
       .asCallback(error => {
         if (error) {
+          console.error(error);
           callback(error.message);
         } else {
           callback('success');
@@ -41,11 +44,14 @@ class File {
   static search(keyword, callback) {
     //const keywordList = keywords.split(' ');
     db('files')
-      .where('filename', 'ilike', `%${keyword}%`)
-      .orWhere('description', 'ilike', `%${keyword}%%`)
+      .whereRaw('LOWER(filename) LIKE ?', `%${keyword.toLowerCase()}%`)
+      .orWhereRaw('LOWER(description) LIKE ?', `%${keyword.toLowerCase()}%`)
+      .orWhereRaw('LOWER(uploader) LIKE ?', `%${keyword.toLowerCase()}%`)
+      .orWhereRaw('LOWER(time) LIKE ?', `%${keyword.toLowerCase()}%`)
       .asCallback((error, files) => {
         let message = 'success';
         if (error) {
+          console.error(error);
           message = error.message;
         }
         callback(files, message);

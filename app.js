@@ -12,6 +12,7 @@ const database = require('./utils/database');
 database.init();
 const app = express();
 
+app.locals.message = '';
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

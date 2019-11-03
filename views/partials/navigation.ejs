@@ -2,7 +2,8 @@
 <div class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
     <div class="mdui-appbar mdui-appbar-fixed">
         <div class="mdui-toolbar mdui-color-white mdui-color-theme">
-            <span mdui-drawer="{target: '.mc-drawer', swipe: true}" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+            <span mdui-drawer="{target: '.mc-drawer', swipe: true}"
+                  class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
                 <i class="mdui-icon material-icons">menu</i>
             </span>
             <a class="mdui-typo-headline" href="/">LAN-Share</a>
@@ -46,3 +47,16 @@
         </div>
     </div>
 </div>
+<% if(message && message!=='success') { %>
+    <div class="mdui-snackbar mdui-snackbar-bottom" id="snackbarMessage" style="transform: translate(-50%, 0px);">
+        <div class="mdui-snackbar-text">
+            <%- message %>
+        </div>
+        <script>
+          $(document).ready(function () {
+            $("#snackbarMessage").delay(10000).hide(300);
+          });
+        </script>
+    </div>
+<% } %>
+

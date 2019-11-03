@@ -21,6 +21,7 @@ function init() {
           table.string('uploader', 100);
           table.string('link', 120);
           table.string('time', 50);
+          table.integer('downloadCounter', 10);
         })
         .then(
           value => {

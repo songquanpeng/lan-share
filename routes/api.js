@@ -3,18 +3,20 @@ const router = express.Router();
 const File = require('../models/file').File;
 const upload = require('../middlewares/upload').upload;
 
-router.post('/upload', upload.single(), function(req, res) {
+router.post('/upload', upload.single('file'), function(req, res) {
   const currentTime = new Date();
   File.add(
     {
       filename: req.body.filename,
       description: req.body.description,
       uploader: req.body.uploader,
-      link: '/public/downloads/' + req.file.filename,
-      time: currentTime.toLocaleString()
+      link: '/downloads/' + req.file.filename,
+      time: currentTime.toLocaleString(),
+      filename: req.file.filename
     },
     message => {
-      res.json(message);
+      req.flash('message', message);
+      res.redirect('/');
     }
   );
 });
