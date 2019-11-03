@@ -7,12 +7,11 @@ router.post('/upload', upload.single('file'), function(req, res) {
   const currentTime = new Date();
   File.add(
     {
-      filename: req.body.filename,
+      filename: req.file.originalname,
       description: req.body.description,
       uploader: req.body.uploader,
       link: '/downloads/' + req.file.filename,
-      time: currentTime.toLocaleString(),
-      filename: req.file.filename
+      time: currentTime.toLocaleString()
     },
     message => {
       req.flash('message', message);
@@ -21,11 +20,22 @@ router.post('/upload', upload.single('file'), function(req, res) {
   );
 });
 
-router.delete('/file:id', function(req, res) {
-  const id = req.params.id;
-  File.delete(id, message => {
-    res.json(message);
-  });
+router.post('/delete', function(req, res) {
+  const id = req.body.id;
+  const token = req.body.token;
+  if (token === req.app.locals.config.token) {
+    File.delete(id, message => {
+      res.json({
+        success: true,
+        message: message
+      });
+    });
+  } else {
+    res.json({
+      success: false,
+      message: 'Token is invalid.'
+    });
+  }
 });
 
 module.exports = router;

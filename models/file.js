@@ -1,4 +1,5 @@
 const db = require('../utils/database').db;
+const fs = require('fs');
 
 class File {
   static all(callback) {
@@ -29,6 +30,13 @@ class File {
 
   static delete(id, callback) {
     db('files')
+      .select('link')
+      .where('id', id)
+      .then(value => {
+        this.deleteFileFromFileSystem(value[0].link);
+      });
+
+    db('files')
       .where('id', id)
       .del()
       .asCallback(error => {
@@ -56,6 +64,14 @@ class File {
         }
         callback(files, message);
       });
+  }
+
+  static deleteFileFromFileSystem(link) {
+    fs.unlink('./public' + link, error => {
+      if (error) {
+        console.error(error);
+      }
+    });
   }
 }
 

@@ -8,11 +8,17 @@
     <meta name="description" content="LAN file sharing tool website. 局域网文件共享网站">
     <meta name="theme-color" content="#3F51B5"/>
     <link rel="shortcut icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/0.4.3/css/mdui.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <% if(config.cdn === 'cdnjs.cloudflare.com'){ %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <% }else { %>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/0.4.3/css/mdui.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/mdui/0.4.3/js/mdui.min.js"></script>
+    <% } %>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/javascripts/main.js"></script>
 </head>

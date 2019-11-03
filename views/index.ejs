@@ -5,7 +5,7 @@
         <div class="mdui-textfield mdui-textfield-floating-label" style="padding-top: 8px">
             <i class="mdui-icon material-icons">search</i>
             <label class="mdui-textfield-label">Search files...</label>
-            <input class="mdui-textfield-input" id="searchInput" type="text" autofocus style="cursor: text;">
+            <input class="mdui-textfield-input" id="searchInput" type="text" autocomplete="off" autofocus style="cursor: text;">
             <div class="mdui-textfield-helper">Press "Enter" to search.</div>
         </div>
         <script>
@@ -25,7 +25,7 @@
 
     <% if (files.length){ %>
         <% files.forEach((file)=>{ %>
-            <div class="mdui-card" style="margin-top: 16px">
+            <div class="mdui-card" id="file-<%- file.id %>" style="margin-top: 16px">
                 <div class="mdui-card-primary" style="padding-top: 8px">
                     <div class="mdui-card-primary-title"><%- file.filename %></div>
                     <div class="mdui-card-primary-subtitle">
@@ -39,15 +39,17 @@
                 </div>
                 <div class="mdui-card-actions">
                     <a class="mdui-btn mdui-btn-icon mdui-float-right" download="<%- file.filename %>" href="<%- file.link %>"><i
-                                class="mdui-icon material-icons">cloud_download</i></a>
-                    <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">thumb_down</i>
+                                class="mdui-icon material-icons mdui-text-color-green">cloud_download</i></a>
+                    <button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons mdui-text-color-purple">thumb_down</i>
                     </button>
                     <button class="mdui-btn mdui-btn-icon mdui-float-right"><i
-                                class="mdui-icon material-icons">thumb_up</i>
+                                class="mdui-icon material-icons mdui-text-color-blue">thumb_up</i>
+                    </button>
+                    <button class="mdui-btn mdui-btn-icon mdui-float-right" onclick="deleteFile(<%- file.id %>)"><i
+                                class="mdui-icon material-icons mdui-text-color-red">delete</i>
                     </button>
                 </div>
             </div>
     <% });} %>
-
 </div>
 <%- include('./partials/footer') %>

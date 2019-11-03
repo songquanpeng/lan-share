@@ -32,31 +32,31 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
                 <div class="mdui-list-item-content">Home</div>
             </a>
-            <a class="mdui-list-item mdui-ripple" href="/help">
+            <a class="mdui-list-item mdui-ripple" href="https://iamazing.cn/">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">help</i>
                 <div class="mdui-list-item-content">Help</div>
             </a>
-            <a class="mdui-list-item mdui-ripple" href="/about">
+            <a class="mdui-list-item mdui-ripple" href="https://github.com/songwonderful/lan-share">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">error_outline</i>
                 <div class="mdui-list-item-content">About</div>
             </a>
-            <a class="mdui-list-item mdui-ripple" href="/feedback">
+            <a class="mdui-list-item mdui-ripple" href="https://github.com/songwonderful/lan-share/issues/new">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">message</i>
                 <div class="mdui-list-item-content">Feedback</div>
+            </a>
+            <a class="mdui-list-item mdui-ripple" href="https://github.com/songwonderful/lan-share">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-yellow">star</i>
+                <div class="mdui-list-item-content">Star</div>
             </a>
         </div>
     </div>
 </div>
+<div class="mdui-snackbar mdui-snackbar-bottom" id="messageToast" style="transform: translate(-50%, 0px);display: none" >
+    <div class="mdui-snackbar-text" id="messageToastText"></div>
+</div>
 <% if(message && message!=='success') { %>
-    <div class="mdui-snackbar mdui-snackbar-bottom" id="snackbarMessage" style="transform: translate(-50%, 0px);">
-        <div class="mdui-snackbar-text">
-            <%- message %>
-        </div>
-        <script>
-          $(document).ready(function () {
-            $("#snackbarMessage").delay(10000).hide(300);
-          });
-        </script>
-    </div>
+    <script>
+        showMessage('<%- message %>')
+    </script>
 <% } %>
 

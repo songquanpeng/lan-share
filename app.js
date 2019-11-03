@@ -9,9 +9,11 @@ const serveStatic = require('serve-static');
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const database = require('./utils/database');
+const config = require('./config').config;
 database.init();
 const app = express();
 
+app.locals.config = config;
 app.locals.message = '';
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
