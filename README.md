@@ -5,6 +5,11 @@
 + Used for file sharing in LAN
 + Simple to deploy.
 
+## Demo
+![image](https://user-images.githubusercontent.com/39998050/68082537-f0ada600-fe58-11e9-8188-de36ce763e60.png)
+
+![image](https://user-images.githubusercontent.com/39998050/68082521-cfe55080-fe58-11e9-8131-2a4d793832ef.png)
+
 ## Deploy Steps
 1. Install [Node.js](https://nodejs.org/en/) v10.14.2 or any other compatible versions.
 2. Use git to clone `https://github.com/songquanpeng/lan-share.git`
