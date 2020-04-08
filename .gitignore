@@ -5,3 +5,4 @@ data.db
 data.db-journal
 public/downloads/*
 !public/downloads/README.md
+package-lock.json
