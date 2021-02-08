@@ -2,8 +2,9 @@
 ![stars](https://img.shields.io/github/stars/songquanpeng/lan-share) ![repo-size](https://img.shields.io/github/repo-size/songquanpeng/lan-share) ![license](https://img.shields.io/github/license/songquanpeng/lan-share) ![release](https://img.shields.io/github/v/release/songquanpeng/lan-share) 
 [中文](https://iamazing.cn/page/LAN-SHARE-使用教程)
 
-## Notice
-Check the [GoLang version](https://github.com/songquanpeng/lan-share-go), it's more easy to deploy.
+***Please use the [Go version](https://github.com/songquanpeng/go-file), this version is no longer maintained.***
+
+**请使用 [Go 语言版本](https://github.com/songquanpeng/go-file)，仅单个可执行文件，无需配置，开箱即用，且功能更加丰富。**
 
 ## Description
 + Used for file sharing in LAN
